@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${name} + ' | Pokédex'">Pokédex</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <a href="/" class="btn btn-secondary mb-4">← Back</a>
+        <div class="card mx-auto shadow-lg" style="max-width: 500px;">
+            <div class="card-header text-center">
+                <h2 class="text-capitalize" th:text="${name}">Pokemon Name</h2>
+            </div>
+            <div class="card-body text-center">
+                <img th:src="${sprite}" alt="Sprite" class="mb-3" style="height: 150px;">
+                <p><strong>Height:</strong> <span th:text="${height}"></span></p>
+
+                <p><strong>Abilities:</strong></p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item text-capitalize" th:each="a : ${abilities}" th:text="${a}"></li>
+                </ul>
+
+                <p><strong>Moves (Top 5):</strong></p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-capitalize" th:each="m : ${moves}" th:text="${m}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
